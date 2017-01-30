@@ -1,0 +1,72 @@
+---
+layout: default
+slug: cfp
+---
+
+<h2>Important Dates</h2>
+
+<h3>Submission Deadlines*</h3>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th class="text-right">Date</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td class="text-right" scope="row" colspan="3">*&nbsp;Submissions close at 23:59 AoE (Anywhere on Earth, UTC-12)</td>
+            </tr>
+        </tfoot>
+        <tbody>
+			{% for date in site.data.dates %}
+	        {% if date.Section == 'Deadlines' %}
+			
+            <tr>
+                <td><a href="{{date.Link}}">{{date.Name}}</a></td>
+                <td class="text-right">{{date.Date}}</td>
+            </tr>
+			{% endif %}
+			{% endfor %}
+        </tbody>
+        <tr></tr>
+    </table>
+</div>
+
+<h3>Author Notifications</h3>
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+			{% for date in site.data.dates %}
+	        {% if date.Section == 'Notification' %}
+			
+            <tr>
+                <td><a href="{{date.Link}}">{{date.Name}}</a></td>
+                <td class="text-right">{{date.Date}}</td>
+            </tr>
+			{% endif %}
+			{% endfor %}
+        </tbody>
+        <tr></tr>
+    </table>
+</div>
+
+<h3>Camera-Ready and Registration</h3>
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+			{% for date in site.data.dates %}
+	        {% if date.Section == 'Camera' or date.Section == 'Registration' %}
+			
+            <tr>
+                <td><a href="{{date.Link}}">{{date.Name}}</a></td>
+                <td class="text-right">{{date.Date}}</td>
+            </tr>
+			{% endif %}
+			{% endfor %}
+        </tbody>
+        <tr></tr>
+    </table>
+</div>
+

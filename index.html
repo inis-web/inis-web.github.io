@@ -1,0 +1,50 @@
+---
+layout: default
+title: ICIT 2016
+slug: home
+---
+
+<div class="row">
+  <div class="col-md-12" role="main">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Highlights</h3>
+           
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8" role="main">
+<p class="text-justify">
+
+    </p>
+
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">News</h3>
+      </div>
+      <ul class="list-group">
+        {% for post in site.posts limit:10 %}
+        <li class="list-group-item">
+          <h5 class="list-group-item-heading">{{ post.date | date: "%B %-d, %Y" }}</h5>
+          <p class="list-group-item-text">{{ post.title }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="panel-footer text-right">
+        <a href="/news.html">More News</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

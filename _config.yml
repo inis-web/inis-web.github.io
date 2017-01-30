@@ -1,0 +1,26 @@
+# Site settings
+title: INIS 2017
+author:
+  name: INIS 2016
+  email: webdev+inis@erebuslabs.com
+  github: inis-web
+  twitter: erebuslabs
+description: > # this means to ignore newlines until "keywords:"
+  
+  keywords: IEEE INIS
+baseurl: ""
+url: "http://inis-web.github.io"
+repo: https://github.com/inis-web/inis-web.github.io
+
+# Build settings
+timezone: America/Denver
+encoding: utf-8
+markdown: kramdown
+permalink: none
+gems:
+  - jekyll-sitemap
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
