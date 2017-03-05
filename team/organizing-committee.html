@@ -18,7 +18,7 @@ slug: team
             {% for item in ChairType.items %}
             <div class="col-xs-6 col-sm-5 col-sm-offset-1">
                       <p>
-                        {{% [item.Name](item.Email) %}}
+
                         <a href='mailto:{{% item.Email %}}'>{{% item.Name %}}</a><br/>
                         {{% item.Affiliation %}}<br/>
                         {{% item.Location %}}
