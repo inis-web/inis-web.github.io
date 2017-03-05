@@ -4,23 +4,37 @@ slug: team
 ---
 
 <h2>Organizing Committee</h2>
+{% assign grouped = site.data.organizingcom | group_by: "ChairType" %}
 
+{% for ChairType in grouped %}
 <div class="row">
     <div class="col-md-10 col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">General Chairs</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{ChairType.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            {% for item in ChairType.items %}
+            <div class="col-xs-6 col-sm-5 col-sm-offset-1">
+                      <p>
+                        <a href="mailto:{{% item.Email %}}">item.Name</a><br/>
+                        item.Affiliation<br/>
+                        item.Location
+                      </p>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-xs-6 col-sm-5 col-sm-offset-1">
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endfor %}
+
+<!---
+            
                         <img class="team-face img-responsive" src="/assets/faces/nayak.jpg"/>
-                        <p>
-                            <a href="mailto:gopal@iiit-bh.ac.in">Gopal Nayak</a><br/>
-                            IIIT Bhubaneswar<br/>
-                            India
-                        </p>
-                    </div>
+
                     <div class="col-xs-6 col-sm-5 col-sm-offset-1">
                         <img class="team-face img-responsive" src="/assets/faces/mohanty.jpg"/>
                         <p>
@@ -29,6 +43,7 @@ slug: team
                             USA
                         </p>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -196,7 +211,7 @@ slug: team
                         </p>
                     </div>
                     <div class="col-xs-6 col-sm-5 col-sm-offset-1"><!--
-                        <img class="team-face img-responsive" src="/assets/faces/behera.jpg"/>-->
+                        <img class="team-face img-responsive" src="/assets/faces/behera.jpg"/>
                         <img class="team-face img-responsive" src="/assets/faces/missing.png"/>
                         <p>
                             <a href="">Ajit Behera</a><br/>
@@ -445,3 +460,4 @@ slug: team
         </div>
     </div>
 </div>
+--->
