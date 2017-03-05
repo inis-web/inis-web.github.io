@@ -19,9 +19,9 @@ slug: team
             <div class="col-xs-6 col-sm-5 col-sm-offset-1">
                       <p>
 
-                        <a href='mailto:{{% item.Email %}}'>{{% item.Name %}}</a><br/>
-                        {{% item.Affiliation %}}<br/>
-                        {{% item.Location %}}
+                        <a href='mailto:{{item.Email}}'>{{item.Name}}</a><br/>
+                        {{item.Affiliation}}<br/>
+                        {{item.Location}}
                       </p>
             </div>
             {% endfor %}
