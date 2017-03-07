@@ -4,7 +4,7 @@ slug: team
 ---
 
 <h2>Steering Committee</h2>
-{% assign grouped = site.data.organizingcom | group_by: "Chair Type" %}
+{% assign grouped = site.data.organizingcom | group_by: "ChairType" %}
 
 {% for ChairType in grouped %}
 <div class="row">
