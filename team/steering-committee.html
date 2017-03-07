@@ -4,70 +4,30 @@ slug: team
 ---
 
 <h2>Steering Committee</h2>
+{% assign grouped = site.data.organizingcom | group_by: "Chair Type" %}
 
-<div class="table-responsive">
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row" colspan="3">Permanent Members</th>
-      </tr>
-      <tr>
-        <td><a href="#">Durga Misra</a></td>
-        <td>New Jersey Institute of Technology</td>
-        <td>USA</td>
-      </tr>
-      <tr>
-        <td><a href="#">Saraju P. Mohanty</a></td>
-        <td>University of North Texas</td>
-        <td>USA</td>
-      </tr>
-      <tr>
-        <td><a href="#">Sudarsan Padhy</a></td>
-        <td>Silcon Institute of Technology</td>
-        <td>Bhubaneswar, India</td>
-      </tr>
-      <tr>
-        <td><a href="#">Siba Prasad Misra</a></td>
-        <td>Orissa Information Technology Society</td>
-        <td>India</td>
-      </tr>
-	  
-      <tr>
-        <th scope="row" colspan="3">Rotating Members</th>
-      </tr>
-      <tr>
-        <td><a href="#">Brajendra Panda</a></td>
-        <td>University of Arkansas</td>
-        <td>USA</td>
-      </tr>
-      <tr>
-        <td><a href="#">Dipak Misra</a> (Coordinator)</td>
-        <td>XIM</td>
-        <td>Bhubaneswar, India</td>
-      </tr>
-      <tr>
-        <td><a href="#">Mainak Chatterjee</a></td>
-        <td>University of Central Florida</td>
-        <td>USA</td>
-      </tr>
-      <tr>
-        <td><a href="#">Bhawani Sankar Panda</a></td>
-        <td>IIT</td>
-        <td>India</td>
-      </tr>
-      <tr>
-        <td><a href="#">Sanjay Mohapatra</a></td>
-        <td>XIM</td>
-        <td>Bhubaneswar, India</td>
-      </tr>
-      <tr>
-        <td><a href="#">Prafulla K. Behera</a></td>
-        <td>Utkal University</td>
-        <td>Bhubaneswar, India</td>
-      </tr>
-  
-     
-    </tbody>
-    <tr></tr>
-  </table>
+{% for ChairType in grouped %}
+<div class="row">
+    <div class="col-md-10 col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{ChairType.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            {% for item in ChairType.items %}
+            <div class="col-xs-6 col-sm-5 col-sm-offset-1">
+                      <p>
+                        <a href='mailto:{{item.Email}}'>{{item.Name}}</a><br/>
+                        {{item.Affiliation}}<br/>
+                        {{item.Location}}
+                      </p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+{% endfor %}
+
