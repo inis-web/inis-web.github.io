@@ -26,22 +26,22 @@ slug: team
               <tbody>
                 <tr><th>Name</th><th>Affiliation</th><th>Role</th></tr>
                 {% for member in tracks.items | sort: 'lastName' %}
-                {% if member.role == 'Track Chair' %}
+                {% if member.role == 'Chair' %}
                   <tr>
                     <td>
-                      {% if member.role == 'Track Chair' %}<strong>{% endif %}
+                      {% if member.role == 'Chair' %}<strong>{% endif %}
                       <a href="#">{{member.firstName}} {{member.lastName}}</a>
-                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                      {% if member.role == 'Chair' %}</strong>{% endif %}
                     </td>
                     <td>
-                      {% if member.role == 'Track Chair' %}<strong>{% endif %}
+                      {% if member.role == 'Chair' %}<strong>{% endif %}
                       {{member.organization}}
-                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                      {% if member.role == 'Chair' %}</strong>{% endif %}
                     </td>
                     <td>
-                      {% if member.role == 'Track Chair' %}<strong>{% endif %}
+                      {% if member.role == 'Chair' %}<strong>{% endif %}
                       {{member.role | capitalize}}
-                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                      {% if member.role == 'Chair' %}</strong>{% endif %}
                     </td>
                   </tr>
                 {% endif %}
