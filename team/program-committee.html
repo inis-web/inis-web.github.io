@@ -6,30 +6,6 @@ slug: team
 <h2>Program Committee</h2>
 
 
-<div class="table-responsive">
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row" colspan="3">Program Chairs</th>
-      </tr>
-      <tr>
-      <td>Name</td><td>Affiliation</td>
-      </tr>
-      {% for member in site.data.tpc %}
-      {% if member.role == 'Program Chair' %}
-      <tr>
-        <td>
-          <a href="mailto:{{memeber.email}}">{{member.firstName}} {{member.lastName}}</a>
-        </td>
-        <td>
-            {{member.organization}}
-        </td>
-      </tr>
-      {% endif %}
-      {% endfor %}
-   </tbody>
-  </table>
-</div>
 
 
 {% assign grouped = site.data.tpc | group_by: "track" %}
