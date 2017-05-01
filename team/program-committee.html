@@ -9,7 +9,7 @@ slug: team
 <div class="table-responsive">
   <table class="table">
     <tbody>
- <tr>
+      <tr>
         <th scope="row" colspan="3">Program Chairs</th>
       </tr>
       <tr>
@@ -40,53 +40,46 @@ slug: team
 
 
 {% for tracks in grouped %}
+{% if tracks.name != 'Conference' %}
 <div class="row">
     <div class="col-md-10 col-lg-8">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">{{tracks.name}}</h3>
+          <h3 class="panel-title">{{tracks.name}} Track Chairs &amp; Members </h3>
         </div>
         <div class="panel-body">
           <div class="row">
             
-          <div class="table-responsive">
-          <table class="table">
-          <tbody>
-          <tr>
-         <th scope="row" colspan="4">Track Chairs &amp; Members</th>
-        </tr>
-        <tr>
-        <td>Name</td><td>Affiliation</td><td>Role</td><td>Track</td>
-        </tr>
-        {% for member in tracks.items | sort: 'role' %}
-        <tr>
-        <td>
-          {% if member.role == 'Track Chair' %}<strong>{% endif %}
-          <a href="#">{{member.firstName}} {{member.lastName}}</a>
-         {% if member.role == 'Track Chair' %}</strong>{% endif %}
-        </td>
-        <td>
-          {% if member.role == 'Track chair' %}<strong>{% endif %}
-          {{member.organization}}
-          {% if member.role == 'Track Chair' %}</strong>{% endif %}
-        </td>
-
-        <td>
-          <strong>{{member.role | capitalize}}</strong></td>
-        <td>
-          {% if member.role == 'Track Chair' %} <strong>   {% endif %}
-          {{member.track}}
-          {% if member.role == 'Track Chair' %}</strong>{% endif %}
-        </td>
-
-      </tr>
-      {% endfor %}
-   </tbody>
-  </table>
-</div>
-                      </div>
-        </div>
-      </div>
+              <div class="table-responsive">
+                <table class="table">
+                <tbody>
+                <tr><th>Name</th><th>Affiliation</th><th>Role</th></tr>
+                {% for member in tracks.items | sort: 'role' %}
+                <tr>
+                    <td>
+                      {% if member.role == 'Track Chair' %}<strong>{% endif %}
+                      <a href="#">{{member.firstName}} {{member.lastName}}</a>
+                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                    </td>
+                    <td>
+                      {% if member.role == 'Track chair' %}<strong>{% endif %}
+                      {{member.organization}}
+                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                    </td>
+                    <td>
+                      <strong>{{member.role | capitalize}}</strong>
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+              </div>
+            
+          </div> 
+        </div> 
+      </div>  
+      
     </div>
-
+</div>
+{% endif %}
 {% endfor %}
