@@ -36,7 +36,7 @@ slug: team
 </div>
 
 
-{% assign grouped = site.data.tpc | group_by: 'track' %}
+{% assign grouped = site.data.tpc | group_by: "track" %}
 
 
 {% for tracks in grouped %}
@@ -49,48 +49,34 @@ slug: team
         <div class="panel-body">
           <div class="row">
             
-<div class="table-responsive">
-  <table class="table">
-    <tbody>
- <tr>
-
-        <th scope="row" colspan="4">Track Chairs &amp; Members</th>
-      </tr>
-      <tr>
-      <td>Name</td><td>Affiliation</td><td>Role</td><td>Track</td>
-      </tr>
-      {% for member in tracks.items | sort: 'role' %}
-      <tr>
+          <div class="table-responsive">
+          <table class="table">
+          <tbody>
+          <tr>
+         <th scope="row" colspan="4">Track Chairs &amp; Members</th>
+        </tr>
+        <tr>
+        <td>Name</td><td>Affiliation</td><td>Role</td><td>Track</td>
+        </tr>
+        {% for member in tracks.items | sort: 'role' %}
+        <tr>
         <td>
-        {% if member.role == 'Track Chair' %}
-          <strong>
-        {% endif %}
+          {% if member.role == 'Track Chair' %}<strong>{% endif %}
           <a href="#">{{member.firstName}} {{member.lastName}}</a>
-         {% if member.role == 'Track Chair' %}
-          </strong>
-        {% endif %}
+         {% if member.role == 'Track Chair' %}</strong>{% endif %}
         </td>
-
         <td>
-          {% if member.role == 'Track chair' %}
-          <strong>
-          {% endif %}
-            {{member.organization}}
-          {% if member.role == 'Track Chair' %}
-          </strong>
-          {% endif %}
+          {% if member.role == 'Track chair' %}<strong>{% endif %}
+          {{member.organization}}
+          {% if member.role == 'Track Chair' %}</strong>{% endif %}
         </td>
 
         <td>
           <strong>{{member.role | capitalize}}</strong></td>
         <td>
-          {% if member.role == 'Track Chair' %}
-            <strong>
-          {% endif %}
+          {% if member.role == 'Track Chair' %} <strong>   {% endif %}
           {{member.track}}
-          {% if member.role == 'Track Chair' %}
-            </strong>
-          {% endif %}
+          {% if member.role == 'Track Chair' %}</strong>{% endif %}
         </td>
 
       </tr>
@@ -98,3 +84,9 @@ slug: team
    </tbody>
   </table>
 </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}
