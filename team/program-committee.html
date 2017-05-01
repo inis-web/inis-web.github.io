@@ -26,6 +26,7 @@ slug: team
               <tbody>
                 <tr><th>Name</th><th>Affiliation</th><th>Role</th></tr>
                 {% for member in tracks.items | sort: 'lastName' %}
+                {% if member.role == 'Track Chair' %}
                   <tr>
                     <td>
                       {% if member.role == 'Track Chair' %}<strong>{% endif %}
@@ -43,6 +44,7 @@ slug: team
                       {% if member.role == 'Track Chair' %}</strong>{% endif %}
                     </td>
                   </tr>
+                {% endif %}
                 {% endfor %}
               </tbody>
             </table>
