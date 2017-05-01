@@ -15,7 +15,7 @@ slug: team
       <tr>
       <td>Name</td><td>Affiliation</td><td>Track</td>
       </tr>
-      {% for member in site.data.inis-tpc %}
+      {% for member in site.data.tpc %}
       {% if member.role == 'Program Chair' %}
       <tr>
         <td>
@@ -36,7 +36,7 @@ slug: team
 </div>
 
 
-{% assign grouped = site.data.inis-tpc | group_by: "track" %}
+{% assign grouped = site.data.tpc | group_by: "track" %}
 
 
 {% for tracks in grouped %}
