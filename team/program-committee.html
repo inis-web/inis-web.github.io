@@ -13,7 +13,7 @@ slug: team
         <th scope="row" colspan="3">Program Chairs</th>
       </tr>
       <tr>
-      <td>Name</td><td>Affiliation</td><td>Track</td>
+      <td>Name</td><td>Affiliation</td>
       </tr>
       {% for member in site.data.tpc %}
       {% if member.role == 'Program Chair' %}
@@ -24,10 +24,6 @@ slug: team
         <td>
             {{member.organization}}
         </td>
-        <td>
-          {{member.track}}
-        </td>
-
       </tr>
       {% endif %}
       {% endfor %}
@@ -42,20 +38,19 @@ slug: team
 {% for tracks in grouped %}
 {% if tracks.name != 'Conference' %}
 <div class="row">
-    <div class="col-md-10 col-lg-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{tracks.name}} Track Chairs &amp; Members </h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            
-              <div class="table-responsive">
-                <table class="table">
-                <tbody>
+  <div class="col-md-10 col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{tracks.name}} Track Chairs &amp; Members </h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">    
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
                 <tr><th>Name</th><th>Affiliation</th><th>Role</th></tr>
-                {% for member in tracks.items | sort: 'role' %}
-                <tr>
+                {% for member in tracks.items | sort: 'lastName' %}
+                  <tr>
                     <td>
                       {% if member.role == 'Track Chair' %}<strong>{% endif %}
                       <a href="#">{{member.firstName}} {{member.lastName}}</a>
@@ -67,19 +62,20 @@ slug: team
                       {% if member.role == 'Track Chair' %}</strong>{% endif %}
                     </td>
                     <td>
-                      <strong>{{member.role | capitalize}}</strong>
-                  </td>
-                </tr>
+                      {% if member.role == 'Track chair' %}<strong>{% endif %}
+                      {{member.role | capitalize}}
+                      {% if member.role == 'Track Chair' %}</strong>{% endif %}
+                    </td>
+                  </tr>
                 {% endfor %}
-                </tbody>
-                </table>
-              </div>
+              </tbody>
+            </table>
+          </div>
             
-          </div> 
         </div> 
-      </div>  
-      
-    </div>
+      </div> 
+    </div>    
+  </div>
 </div>
 {% endif %}
 {% endfor %}
