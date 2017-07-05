@@ -51,6 +51,7 @@ Contributions are sought in (but are not limited to) the following areas:</p>
 </dd>
 </dl>
 
+
 <p class="text-justify">
 iNIS 2017 proceedings will be published by IEEE-CS conference 
 publication services (CPS). Authors are invited to submit full-length
@@ -81,6 +82,26 @@ Submissions must be submitted to <a href="https://easychair.org/conferences/?con
 <h3>Important Dates</h3>
 <dl class="dl-horizontal">
 
+	{% for date in site.data.dates %}
+	{% assign dateArray = date.Date | split: '/' %}
+
+	<dt>{{date.Name}}&nbsp;</dt><dd>{{dateArray[1]}}
+	{% case dateArray[0] %}
+	{% when '01' %}January
+	{% when '02' %}February
+	{% when '03' %}March
+	{% when '04' %}April
+	{% when '05' %}May
+	{% when '06' %}June
+	{% when '07' %}July
+	{% when '08' %}August
+	{% when '09' %}September
+	{% when '10' %}October
+	{% when '11' %}November
+	{% when '12' %}December
+	{% endcase %}
+	{{dateArray[2]}}</dd>
+	{% endfor %}
 </dl>
 <p>Submissions close at 23:59 AoE (Anywhere on Earth, UTC-12)</p>
 
@@ -92,7 +113,7 @@ special sessions as well as panels. Special session and panel proposals/papers
 can be submitted to “Special Sessions and Panels” track at the online submission link.
 The submission deadline is the same as specified for the regular paper submissions.  
 All accepted special session papers will be published in the conference proceedings.
-
+</p>
 <h3>Student Research Forum (SRF)</h3>
 <p class="text-justify">
 
@@ -105,7 +126,7 @@ at the online submission link. The submission deadline is the
 same as specified for the regular paper submissions. 
 All the accepted student research symposium papers will be 
 published in the conference proceedings. 
-
+</p>
 <h3>Award Information</h3>
 <p class="text-justify">
 
@@ -113,4 +134,4 @@ published in the conference proceedings.
 In addition, $150 for the best paper award. Following is the summary:
 (1) 3 TCVLSI Student Travel Award ($250 each)
 (2) 1 TCVLSI Best Paper Award ($150 each) 
-<p>
+</p>
